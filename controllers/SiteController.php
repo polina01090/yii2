@@ -126,8 +126,6 @@ class SiteController extends Controller
     {
 
         $user = Users::find()->one();
-        $user->username = 'admin1';
-        $user->save();
         var_dump($user);
         return $this->render('about');
     }
