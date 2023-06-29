@@ -17,4 +17,9 @@ class UserRepository
     public static function getUsersByCondition($where){
         return Users::find()->where($where)->all();
     }
+    public static function changePassword($user_id, $newPassword){
+        $user = self::getUserById($user_id);
+        $user->password = password_hash($newPassword, PASSWORD_DEFAULT);
+        $user->save();
+    }
 }
