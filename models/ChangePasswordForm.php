@@ -29,10 +29,11 @@ class ChangePasswordForm extends Model
             // username and password are both required
             [['oldPassword', 'repeatPassword', 'newPassword'], 'required'],
             // rememberMe must be a boolean value
-            ['oldPassword', 'compare', 'compareAttribute' => 'repeatPassword'],
+            ['repeatPassword', 'compare', 'compareAttribute' => 'oldPassword'],
             ['oldPassword', 'compare', 'compareAttribute' => 'newPassword', 'operator' => '!='],
             // password is validated by validatePassword()
             ['oldPassword', 'validatePassword'],
+            ['newPassword', 'string', 'length' => [8, 32]]
         ];
     }
 
