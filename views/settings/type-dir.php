@@ -5,7 +5,7 @@ use yii\grid\GridView;
 use \app\entity\ColorDir;
 use yii\helpers\Html;
 
-echo HTML::a('Добавить цвет', ['add-color',]);
+echo HTML::a('Добавить тип', ['add-type',]);
 /** @var ActiveDataProvider $dataProvider */
 echo GridView::widget([
     'dataProvider' => $dataProvider,
@@ -18,13 +18,13 @@ echo GridView::widget([
             'buttons' => [
                 'edit' => function ($url, $model, $key) {
                     return HTML::a('редактировать', [
-                        'edit-color',
+                        'edit-type',
                         'id' => $key
                     ]);
                 },
                 'delete' => function ($url, $model, $key) {
                     return HTML::a('удалить', [
-                        'delete-color',
+                        'delete-type',
                         'id' => $key
                     ]);
                 }
