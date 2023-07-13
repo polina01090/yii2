@@ -20,11 +20,11 @@ use yii\bootstrap5\Html;
     <?= $form->field($model, 'name')->textInput() ?>
     <div class="form-group">
         <label for="count"></label>
-        <input class="form-control" type="number" id="count" min="0" max="10">
+        <input class="form-control" type="number" id="count" min="1" max="10" value="3">
     </div>
     <div class="form-group">
         <label>Цветы</label>
-        <div class="flowers">
+        <div id="flowers">
             <?= $form->field($model, 'flowers[]')->label(false)->dropDownList($flowers) ?>
             <?= $form->field($model, 'flowers[]')->label(false)->dropDownList($flowers) ?>
             <?= $form->field($model, 'flowers[]')->label(false)->dropDownList($flowers) ?>
