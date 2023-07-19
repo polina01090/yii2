@@ -35,7 +35,7 @@ class BouquetController extends Controller
         FlowersRepository::deleteFlower($id);
         return $this->redirect('list');
     }
-    public function actionList(){
+    public function actionFlower($id){
         $ids = BouquetRepository::getFlowersId($id);
         $dataProvider = new ActiveDataProvider([
             'query' => Flowers::find()
@@ -52,8 +52,16 @@ class BouquetController extends Controller
             'dataProvider'=>$dataProvider
         ]);
     }
-    public function actionFlowers(){
-
+    public function actionList(){
+        $dataProvider = new ActiveDataProvider([
+            'query' => Flowers::find(),
+            'pagination' => [
+                'pageSize' => 20,
+            ],
+        ]);
+        return $this->render('list', [
+            'dataProvider'=>$dataProvider
+        ]);
     }
 
 }
